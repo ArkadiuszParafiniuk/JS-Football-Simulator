@@ -35,12 +35,29 @@ function animationLoop(time){
     //penalty fields
     ctx.rect(Pitch.out,Pitch.height/2-Goal.width/2-160,160,Goal.width+2*160);
     ctx.rect(Pitch.width-160+Pitch.out,Pitch.height/2-Goal.width/2-160,160,Goal.width+2*160);
+    //penalty points
+    ctx.moveTo(110+Pitch.out,Pitch.height/2);
+    ctx.arc(110+Pitch.out,Pitch.height/2,2,Math.PI/2,3*Math.PI);
+    ctx.moveTo(Pitch.width-110+Pitch.out,Pitch.height/2);
+    ctx.arc(Pitch.width-110+Pitch.out,Pitch.height/2,2,Math.PI/2,3*Math.PI);
+    //center point
+    ctx.moveTo(Pitch.width/2+Pitch.out,Pitch.height/2+Pitch.out);
+    ctx.arc(Pitch.width/2+Pitch.out,Pitch.height/2+Pitch.out,2,Math.PI/2,3*Math.PI);
+    //corner circles
+    ctx.moveTo(Pitch.width+Pitch.out,Pitch.out);
+    ctx.arc(Pitch.width+Pitch.out,Pitch.out,10,Math.PI/2,Math.PI);
+    ctx.moveTo(Pitch.width+Pitch.out,Pitch.out+Pitch.height);
+    ctx.arc(Pitch.width+Pitch.out,Pitch.out+Pitch.height,10,Math.PI,Math.PI*1.5);
+    ctx.moveTo(Pitch.out,Pitch.out+Pitch.height);
+    ctx.arc(Pitch.out,Pitch.out+Pitch.height,10,Math.PI*1.5,Math.PI*2);
+    ctx.moveTo(Pitch.out,Pitch.out);
+    ctx.arc(Pitch.out,Pitch.out,10,0,Math.PI/2);
     //half line
     ctx.moveTo(Pitch.out+Pitch.width/2,Pitch.out);
     ctx.lineTo(Pitch.out+Pitch.width/2,Pitch.out+Pitch.height);
     //half circle
     ctx.moveTo(Pitch.out+Pitch.width/2,Pitch.out+Pitch.height/2+91.4/2);
-    ctx.arc(Pitch.out+Pitch.width/2,Pitch.out+Pitch.height/2+91.4/2,91.4,Math.PI/2,3*Math.PI);
+    ctx.arc(Pitch.out+Pitch.width/2,Pitch.out+Pitch.height/2,91.4,Math.PI/2,3*Math.PI);
     ctx.stroke();
 
     //goal lines
