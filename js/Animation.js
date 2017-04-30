@@ -12,16 +12,24 @@ function animationLoop(time){
     x=x+dirX;
     y=y+dirY;
 
-    if(y<=30+Pitch.out||y>=Pitch.height+Pitch.out){
+    if(y<=Pitch.out+Ball.radius||y>=Pitch.height+Pitch.out-Ball.radius){
       dirY = -dirY;
     }
-    if(x<=30+Pitch.out||x>=Pitch.width+Pitch.out){
+    if(x<=Pitch.out+Ball.radius||x>=Pitch.width+Pitch.out-Ball.radius){
       dirX = -dirX;
     }
 
     //grass
-    ctx.fillStyle = 'green';
+    ctx.fillStyle = "rgba(75, 178, 60,1 )";
     ctx.fillRect(0,0,my_canvas.width,my_canvas.height);
+    ctx.fillStyle = 'green';
+    var i = 0;
+    while(i<=my_canvas.width){
+      if(i%100==0){
+        ctx.fillRect(i,0,50,my_canvas.height);
+      }
+      i = i + 50;
+    }
 
     //pitch lines
     ctx.lineWidth="4";
@@ -35,14 +43,19 @@ function animationLoop(time){
     //penalty fields
     ctx.rect(Pitch.out,Pitch.height/2-Goal.width/2-160,160,Goal.width+2*160);
     ctx.rect(Pitch.width-160+Pitch.out,Pitch.height/2-Goal.width/2-160,160,Goal.width+2*160);
-    //penalty points
+    //penalty marks
     ctx.moveTo(110+Pitch.out,Pitch.height/2);
     ctx.arc(110+Pitch.out,Pitch.height/2,2,Math.PI/2,3*Math.PI);
     ctx.moveTo(Pitch.width-110+Pitch.out,Pitch.height/2);
     ctx.arc(Pitch.width-110+Pitch.out,Pitch.height/2,2,Math.PI/2,3*Math.PI);
+    //penalty circle
+    ctx.moveTo(Pitch.out+160,Pitch.height/2);
+    ctx.arc(Pitch.out+110,Pitch.height/2,91.5,-Math.PI/2+Math.PI/5.3,Math.PI/2-Math.PI/5.3);
+    ctx.moveTo(Pitch.out+Pitch.width-160,Pitch.height/2);
+    ctx.arc(Pitch.out+Pitch.width-110,Pitch.height/2,91.5,Math.PI/2+Math.PI/5.3,-Math.PI/2-Math.PI/5.3);
     //center point
-    ctx.moveTo(Pitch.width/2+Pitch.out,Pitch.height/2+Pitch.out);
-    ctx.arc(Pitch.width/2+Pitch.out,Pitch.height/2+Pitch.out,2,Math.PI/2,3*Math.PI);
+    ctx.moveTo(Pitch.width/2+Pitch.out,Pitch.height/2);
+    ctx.arc(Pitch.width/2+Pitch.out,Pitch.height/2,2,Math.PI/2,3*Math.PI);
     //corner circles
     ctx.moveTo(Pitch.width+Pitch.out,Pitch.out);
     ctx.arc(Pitch.width+Pitch.out,Pitch.out,10,Math.PI/2,Math.PI);
@@ -56,24 +69,27 @@ function animationLoop(time){
     ctx.moveTo(Pitch.out+Pitch.width/2,Pitch.out);
     ctx.lineTo(Pitch.out+Pitch.width/2,Pitch.out+Pitch.height);
     //half circle
-    ctx.moveTo(Pitch.out+Pitch.width/2,Pitch.out+Pitch.height/2+91.4/2);
-    ctx.arc(Pitch.out+Pitch.width/2,Pitch.out+Pitch.height/2,91.4,Math.PI/2,3*Math.PI);
+    ctx.moveTo(Pitch.out+Pitch.width/2,Pitch.height/2+91.4/2);
+    ctx.arc(Pitch.out+Pitch.width/2,Pitch.height/2,91.4,Math.PI/2,3*Math.PI);
+    //goals
+    ctx.rect(5,Pitch.height/2-Goal.width/2,20,Goal.width);
+    ctx.rect(Pitch.width+Pitch.out,Pitch.height/2-Goal.width/2,20,Goal.width);
     ctx.stroke();
 
     //goal lines
-    ctx.strokeStyle = 'green';
-    ctx.beginPath();
-    ctx.moveTo(Pitch.out,Pitch.height/2-Goal.width/2);
-    ctx.lineTo(Pitch.out,Pitch.height/2+Goal.width/2);
-    ctx.moveTo(Pitch.width+Pitch.out,Pitch.height/2-Goal.width/2);
-    ctx.lineTo(Pitch.width+Pitch.out,Pitch.height/2+Goal.width/2);
-    ctx.stroke();
-    ctx.closePath();
+    // ctx.strokeStyle = 'green';
+    // ctx.beginPath();
+    // ctx.moveTo(Pitch.out,Pitch.height/2-Goal.width/2+2);
+    // ctx.lineTo(Pitch.out,Pitch.height/2+Goal.width/2-2);
+    // ctx.moveTo(Pitch.width+Pitch.out,Pitch.height/2-Goal.width/2+2);
+    // ctx.lineTo(Pitch.width+Pitch.out,Pitch.height/2+Goal.width/2-2);
+    // ctx.stroke();
+    // ctx.closePath();
 
     //ball
     ctx.fillStyle = 'black';
     ctx.beginPath();
-    ctx.arc(x-h/2,y-h/2,Ball.radius,0,2*Math.PI);
+    ctx.arc(x,y,Ball.radius,0,2*Math.PI);
     ctx.fill();
     ctx.closePath();
   }
