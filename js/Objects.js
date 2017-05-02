@@ -6,7 +6,10 @@ var Pitch = {
 
 var Ball = {
   radius: 5,
-  speed: 10
+  speed: 15,
+  startDirX: Math.random()*2-1,
+  startDirY: Math.random()*2-1,
+  dirMod: Math.random()/2-0.5/2
 };
 
 var Goal = {

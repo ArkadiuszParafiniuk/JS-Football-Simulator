@@ -1,3 +1,33 @@
 body{
   background-color: green;
 }
+
+#canvas{
+  float:left;
+  display: inline-block;
+}
+
+.table{
+  float:right;
+  max-width: 240px;
+}
+
+.score{
+  color:white;
+  font-size: 30px;
+  float:left;
+}
+
+.statistics{
+  color:white;
+  list-style: none;
+}
+
+.statistics>li{
+  display: inline-block;
+}
+
+.statistics>li>h1,
+.statistics>li>h3{
+  margin:0;
+}
