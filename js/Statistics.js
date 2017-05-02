@@ -21,8 +21,6 @@ function outsCounter(){
   if(y<=Pitch.out+Ball.radius||y>=Pitch.height+Pitch.out-Ball.radius||x<=Pitch.out+Ball.radius||x>=Pitch.width+Pitch.out-Ball.radius){
     outs++;
     document.getElementById("outs").innerHTML = "Outs: " + outs;
-    dirX = dirX+Ball.dirMod;
-    dirY = dirY+Ball.dirMod;
   }
 }
 
