@@ -42,6 +42,20 @@
       var startTime = Date.now();
       var distance;
 
+      //player 1
+      var pl01x = Pitch.out+Pitch.width/4;
+      var pl01y = Pitch.height/2;
+      var dirPl01x = 1;
+      var dirPl01y = 1;
+      var pl01ball = false;
+
+      //player 2
+      var pl02x = Pitch.out+3*Pitch.width/4;
+      var pl02y = Pitch.height/2;
+      var dirPl02x = 1;
+      var dirPl02y = 1;
+      var pl02ball = false;
+
       var dirX = Ball.speed*Ball.startDirX;
       var dirY = Ball.speed*Ball.startDirY;
 

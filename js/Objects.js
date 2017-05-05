@@ -16,5 +16,6 @@ var Goal = {
 };
 
 var Player = {
-  radius:10
+  radius:10,
+  speed:7
 }
