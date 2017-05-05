@@ -66,6 +66,20 @@ function drawLoop(time){
   // ctx.stroke();
   // ctx.closePath();
 
+  //player 01
+  ctx.fillStyle = 'red';
+  ctx.beginPath();
+  ctx.arc(pl01x,pl01y,Player.radius,0,2*Math.PI);
+  ctx.fill();
+  ctx.closePath();
+
+  //player 02
+  ctx.fillStyle = 'blue';
+  ctx.beginPath();
+  ctx.arc(pl02x,pl02y,Player.radius,0,2*Math.PI);
+  ctx.fill();
+  ctx.closePath();
+
   //ball
   ctx.fillStyle = 'black';
   ctx.beginPath();
