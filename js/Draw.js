@@ -80,6 +80,13 @@ function drawLoop(time){
   ctx.fill();
   ctx.closePath();
 
+  //player 03
+  ctx.fillStyle = 'yellow';
+  ctx.beginPath();
+  ctx.arc(pl03x,pl03y,Player.radius,0,3*Math.PI);
+  ctx.fill();
+  ctx.closePath();
+
   //ball
   ctx.fillStyle = 'black';
   ctx.beginPath();
